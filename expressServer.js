@@ -12,6 +12,7 @@ console.log("Server started: Listening on PORT 3000");
 // });
 
 //? ALL BROWSERS SEND GET REQUESTS BY DEFAULT
+//? REQUEST DATA FROM THE SERVER
 server.get("/", (req, res) => {
   res.send("<h1>Hello World: GET</h1>");
 });
