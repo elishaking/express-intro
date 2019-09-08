@@ -31,3 +31,8 @@ server.put("/", (req, res) => {
 server.delete("/", (req, res) => {
   res.send("<h1>Hello World: DELETE</h1>");
 });
+
+//? 404 Page
+server.all("*", (req, res) => {
+  res.send("<h1>404 Page not Found</h1>");
+});
