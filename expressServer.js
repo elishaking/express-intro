@@ -1,6 +1,10 @@
 const express = require('express');
 
 const server = express();
+
+//? MAKE THE PUBLIC DIRECTORY ACCESSIBLE
+server.use(express.static('public'));
+
 server.listen(3000);
 console.log("Server started: Listening on PORT 3000");
 
