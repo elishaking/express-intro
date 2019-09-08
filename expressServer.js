@@ -1,5 +1,6 @@
 const express = require('express');
 const helmet = require('helmet');
+const path = require('path');
 
 const server = express();
 
@@ -52,6 +53,18 @@ server.put("/", (req, res) => {
 //? DELETE EXISTING DATA ON THE SERVER
 server.delete("/", (req, res) => {
   res.send("<h1>Hello World: DELETE</h1>");
+});
+
+server.get("/fetch", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "fetch.html"));
+});
+
+server.post("/fetch", (req, res) => {
+  // console.log(req.body);
+  res.json([typeof req.body, {
+    message: "server received your data",
+    requestData: req.body
+  }]);
 });
 
 //? 404 PAGE

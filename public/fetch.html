@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Fetch Data</title>
+</head>
+<body>
+  <h3>Fetching Data...</h3>
+  <p>Look at console</p>
+  <script>
+    fetch("http://localhost:3000/fetch", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        name: "King"
+      }),
+    }).then((res) => res.json().then((val) => {
+      console.log(val);
+    }));
+  </script>
+</body>
+</html>
