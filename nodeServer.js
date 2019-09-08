@@ -15,20 +15,21 @@ const http = require('http');
 // //? listen for traffic on port 3000
 // server.listen(3000);
 
-//? this server is configured to serve the home page only to the "/" url
-const server = http.createServer((req, res) => {
-  if(req.url == "/"){
-    res.writeHead(200, {
-      'content-type': 'text/html'
-    });
-    res.write("<h1>Hello World");
-  } else{
-    res.writeHead(404, {
-      'content-type': 'text/html'
-    });
-    res.write("<h1>Page Not Found");
-  }
-  res.end();
-});
+// //? this server is configured to serve the home page only to the "/" url
+// const server = http.createServer((req, res) => {
+//   if(req.url == "/"){
+//     res.writeHead(200, {
+//       'content-type': 'text/html'
+//     });
+//     res.write("<h1>Hello World");
+//   } else{
+//     res.writeHead(404, {
+//       'content-type': 'text/html'
+//     });
+//     res.write("<h1>Page Not Found");
+//   }
+//   res.end();
+// });
 
-server.listen(3000);
+// server.listen(3000);
+
