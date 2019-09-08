@@ -5,6 +5,11 @@ const server = express();
 //? MAKE THE PUBLIC DIRECTORY ACCESSIBLE
 server.use(express.static('public'));
 
+//? 2 MIDDLE-WARES FOR PARSING REQUEST BODY(DATA)
+//? They are responsible for creating the req.body object, parsing the data in the request and adding it to the created req.body object
+server.use(express.json()); // Parses Data with a mime-type of application/json
+server.use(express.urlencoded({extended: false})); // Parses data with a mime-type of application/x-www-form-urlencoded
+
 server.listen(3000);
 console.log("Server started: Listening on PORT 3000");
 
