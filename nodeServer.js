@@ -1,4 +1,5 @@
 const http = require('http');
+const fs = require('fs'); //? gives access to servers(this computers) file system
 
 // //? this server responds to any url on localhost:3000
 // const server = http.createServer((req, res) => {
@@ -33,3 +34,21 @@ const http = require('http');
 
 // server.listen(3000);
 
+//? this server is configured to read html files and serve them
+const server = http.createServer((req, res) => {
+  if(req.url == "/"){
+    res.writeHead(200, {
+      'content-type': 'text/html'
+    });
+    const homePageHTML = fs.readFileSync('node.html');
+    res.write(homePageHTML);
+  } else{
+    res.writeHead(404, {
+      'content-type': 'text/html'
+    });
+    res.write("<h1>Page Not Found");
+  }
+  res.end();
+});
+
+server.listen(3000);
