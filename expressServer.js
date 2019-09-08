@@ -1,6 +1,10 @@
 const express = require('express');
+const helmet = require('helmet');
 
 const server = express();
+
+//? BASIC SECURITY
+server.use(helmet());
 
 //? MAKE THE PUBLIC DIRECTORY ACCESSIBLE
 server.use(express.static('public'));
