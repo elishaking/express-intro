@@ -11,9 +11,18 @@ console.log("Server started: Listening on PORT 3000");
 //   res.send("<h1>Hello World from Express");
 // });
 
+//? CUSTOM MIDDLE-WARE FUNCTIONS
+//? This functions runs before any of the other middle-ware functions: all above included
+server.use((req, res, next) => {
+  res.locals.validated = true;
+  console.log(`res.locals.validated set to ${res.locals.validated}`);
+  next();
+});
+
 //? ALL BROWSERS SEND GET REQUESTS BY DEFAULT
 //? REQUEST DATA FROM THE SERVER
 server.get("/", (req, res) => {
+  console.log(res.locals.validated);
   res.send("<h1>Hello World: GET</h1>");
 });
 
@@ -32,7 +41,7 @@ server.delete("/", (req, res) => {
   res.send("<h1>Hello World: DELETE</h1>");
 });
 
-//? 404 Page
+//? 404 PAGE
 server.all("*", (req, res) => {
   res.send("<h1>404 Page not Found</h1>");
 });
