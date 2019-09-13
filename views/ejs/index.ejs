@@ -9,7 +9,28 @@
 <body>
   <p>Hello World <strong>EJS Template</strong></p>
   <% for(let i = 0; i < 10; i++) { %>
-    <li>Test</li>
+    <li>Test <%= i %></li>
   <% } %>
+
+  <% for(let i = 0; i < 10; i++) { %>
+    <% 
+      let txt = ""
+      if (i % 2 === 0) {
+        txt = "even"
+      } else {
+        txt = "odd"
+      } 
+    %>
+    <li><%= i %> is <%= txt %></li>
+  <% } %>
+
+  <p>Message: <%= msg %></p>
+  <p>Message from <strong>res.locals</strong>: <%= locals.msg %></p>
+  <p>User is <strong>Validated</strong>: <%= locals.validated %></p>
+  <%#-- the code below is equivalent to the above %>
+  <p>User is <strong>Validated</strong>: <%= validated %></p>
+  <%- html %>
+
+  <% include footer %>
 </body>
 </html>
